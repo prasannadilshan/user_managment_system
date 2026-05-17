@@ -1,0 +1,15 @@
+services:
+
+  backend:
+    build: ./backend/user_managment_system
+    ports:
+      - "8080:8080"
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
