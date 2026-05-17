@@ -1,20 +1,18 @@
-
-
 services:
 
   backend:
-    build: ./backend/user_managment_system
+    image: prasannadil/user_managment_system-backend:1.1
     container_name: backend
+    restart: always
     expose:
       - "8080"
-    restart: always
 
   frontend:
-    build: ./frontend
+    image: prasannadil/user_managment_system-frontend:v1.6
     container_name: frontend
+    restart: always
     expose:
       - "80"
-    restart: always
 
   nginx:
     image: nginx
@@ -26,3 +24,4 @@ services:
     depends_on:
       - frontend
       - backend
+    restart: always
